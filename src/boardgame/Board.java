@@ -2,33 +2,59 @@ package boardgame;
 
 public class Board {
 	private int rows;
-	private int collum;
+	private int columns;
 	private Piece[][] pieces;
-	public Board(int rows, int collum) {
+	public Board(int rows, int columns) {
+		if(rows < 1 || columns < 1) {
+			throw new BoardException("Error creating board: there must be at least 1 row and 1 column");
+		}
 		this.rows = rows;
-		this.collum = collum;
-		pieces = new Piece[rows][collum];
+		this.columns = columns;
+		pieces = new Piece[rows][columns];
 	}
 	public int getRows() {
 		return rows;
 	}
-	public void setRows(int rows) {
-		this.rows = rows;
+	
+	public int getColumns() {
+		return columns;
 	}
-	public int getCollum() {
-		return collum;
-	}
-	public void setCollum(int collum) {
-		this.collum = collum;
-	}
-	public Piece piece(int rows, int collum) {
-		return pieces[rows][collum];
+	
+	public Piece piece(int row, int column) {
+		if(!positionExist(row, column)) {
+			throw new BoardException("Position not on the board");
+		}
+		return pieces[row][column];
 	}
 	public Piece piece(Position position) {
-		return pieces[position.getRow()][position.getCollum()];
+		if(!positionExist(position)) {
+			throw new BoardException("Position not on the board");
+		}
+		return pieces[position.getRow()][position.getColumn()];
 	}
 	public void placePiece(Piece piece, Position position) {
-		pieces[position.getRow()][position.getCollum()] = piece;
+		if(thereIsAPiece(position)){
+			throw new BoardException("There is already a piece on position " + position);
+		}
+		pieces[position.getRow()][position.getColumn()] = piece;
 		piece.position = position;
+	}
+	public boolean thereIsAPiece(Position position) {
+		if(!positionExist(position)) {
+			throw new BoardException("Position not on the board");
+		}
+		return piece(position) != null;
+	}
+	public boolean positionExist(Position position) {
+		return position.getRow() >= 0 && 
+				position.getRow() < rows && 
+				position.getColumn() >= 0 && 
+				position.getColumn() < columns;
+	}
+	public boolean positionExist(int row, int column) {
+		return row >= 0 && 
+				row < rows && 
+				column >= 0 && 
+				column < columns;
 	}
 }
