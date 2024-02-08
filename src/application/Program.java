@@ -5,8 +5,10 @@ import chess.ChessMatch;
 public class Program {
 
 	public static void main(String[] args) {
-		ChessMatch yes = new ChessMatch();
-		UI.printBoard(yes.getPieces());
+		
+		System.out.println((char)('a' + 8));
+		//ChessMatch yes = new ChessMatch();
+		//UI.printBoard(yes.getPieces());
 	}
 
 }
