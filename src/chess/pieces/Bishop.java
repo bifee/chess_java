@@ -10,10 +10,12 @@ public class Bishop extends ChessPiece {
 		super(board, color);
 		// TODO Auto-generated constructor stub
 	}
+
 	@Override
 	public String toString() {
 		return "B";
 	}
+
 	@Override
 	public boolean[][] possibleMoves() {
 		// TODO Auto-generated method stub
