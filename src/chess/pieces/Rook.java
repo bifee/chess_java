@@ -16,7 +16,8 @@ public class Rook extends ChessPiece {
 	}
 	@Override
 	public boolean[][] possibleMoves() {
+		boolean[][] mat = new boolean[getBoard().getRows()][getBoard().getRows()];
 		// TODO Auto-generated method stub
-		return null;
+		return mat;
 	}
 }
