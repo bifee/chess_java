@@ -9,7 +9,6 @@ Welcome to the Interactive Chess Game implemented in Java! This project aims to 
 - [Getting Started](#getting-started)
 - [How to Play](#how-to-play)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Overview
 
