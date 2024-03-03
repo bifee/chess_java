@@ -30,14 +30,11 @@ To run the chess game on your local machine, follow these steps:
 
    ```bash
    git clone https://github.com/your-username/chess-game-java.git
-2. Compile the Java source files:
    
-   ```bash
-   javac Program.java
-3. Run the game:
+2. Open the terminal in the "bin" folder and run the game:
 
    ```bash
-   java Program
+   java application/Program
 
 ## How to Play
 
